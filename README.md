@@ -26,7 +26,7 @@ It is estimated that a human will generate 5 tons of carbon dioxide emissions (C
 
 <img src="figures/figure2.png" alt="alt text" width="800">
 
-The authors note how this high cost is not necessarily a bad thing as long as there is an improvement in accuracy. This was tested with the task of machine translation, a field where large language models had previously shown great performance gains. It was estimated that in an English-to-German translation task using neural architecture, it costed 150,000 dollars and an unreported CO<sub>2</sub>e increase to raise the BLEU (bilingual evaluation understudy - similarity between machine and human translation) score by 0.1.
+The authors note how this high cost is not necessarily a bad thing as long as there is an improvement in accuracy. This was tested with the task of machine translation, a field where large language models had previously shown great performance gains. It was estimated that in an English-to-German translation task using neural architecture search, it costed 150,000 dollars and an unreported CO<sub>2</sub>e increase to raise the BLEU (bilingual evaluation understudy - similarity between machine and human translation) score by 0.1.
 
 **Note:** BLEU is defined as a scale from 0-1, but the change seen was defined by the authors as 29.6 -> 29.7
 
