@@ -4,7 +4,7 @@ Presentation of "On the Dangers of Stochastic Parrots: Can Language Models Be To
 
 ## Introduction
 
-Over the past 5 years, we have been experiencing huge advances in language models, and this trend seems to only be continuing. with brand new technologies such as GPT-4 coming out just this past week. The capabilities of these new models are impressive and with the rapid improvements in capabilities of these models, it is easy to see why experts are so eager to develop and improve these models so quickly. One of the driving factors in this rapid innovation is the increased avaliability and decreased cost of computational resources that allow models to grow larger than ever and be trained on more and more data. For the sake of this discussion, size of an LM is defined as a combination of the parameter count and the dataset training size.
+Over the past 5 years, we have been experiencing huge advances in language models, and this trend seems to only be continuing, with brand new technologies such as GPT-4 coming out just this past week. The capabilities of these new models are impressive and with the rapid improvements in capabilities of these models, it is easy to see why experts are so eager to develop and improve these models so quickly. One of the driving factors in this rapid innovation is the increased avaliability and decreased cost of computational resources that allow models to grow larger than ever and be trained on more and more data. For the sake of this discussion, size of an LM is defined as a combination of the parameter count and the training dataset size.
 
 This is represented in the following figure, showing the growth in both parameter count and training dataset size from 2019-2021.
 
@@ -18,13 +18,21 @@ Overall, I would break down the main arguments of the authors into three main co
 
 #### Environmental Concerns
 
-With the ongoing climate crisis, there has been a big push for companies to be more responsible with their emissions, particularly carbon dioxide emissions. It is estimated that a human will use 5 tons of carbon dioxide emissions (CO<sub>2</sub>e) per year in 2017. According to 'Energy and Policy Considerations for Deep Learning in NLP' by Strubell et al., a single training of a large transformer can take upwards of 280 tons CO<sub>2</sub>e. It is noted that hardly any of the energy sources that cloud computing services utilize are renewable. Listed below are a series of models that were examined for environemental costs in Strubell et al.'s paper:
+With the ongoing climate crisis, there has been a big push for companies to be more responsible with their emissions, particularly carbon dioxide emissions. Carbon dioxide has been shown to be one of the major greenhouse gases involved in the acceleration of global warming.
+
+When discussing environemental concerns, this paper leans heavily on the findings in 'Energy and Policy Considerations for Deep Learning in NLP' by Strubell et al., so a majority of the information that I will be discussing here will have come from this paper.
+
+It is estimated that a human will generate 5 tons of carbon dioxide emissions (CO<sub>2</sub>e) per year in 2017. It is noted in 'Energy and Policy Considerations' a single training of a large transformer can take upwards of 280 tons CO<sub>2</sub>e. It is noted that hardly any of the energy sources that cloud computing services utilize are renewable. Listed below are a series of models that were examined for environemental costs in Strubell et al.'s paper:
 
 <img src="figures/figure2.png" alt="alt text" width="800">
 
-The authors note how this high cost is not necessairly a bad thing as long as there is an improvement in accuracy. This was tested with the task of machine translation, a field where large language models had previously shown performance gains. It was estimated that in an English-to-German translation task, it costed 150,000 dollars and an unreported CO<sub>2</sub>e increase to raise the BLEU score (similarity between machine and human translation) by 0.1.
+The authors note how this high cost is not necessairly a bad thing as long as there is an improvement in accuracy. This was tested with the task of machine translation, a field where large language models had previously shown performance gains. It was estimated that in an English-to-German translation task using neural architecture, it costed 150,000 dollars and an unreported CO<sub>2</sub>e increase to raise the BLEU (bilingual evaluation understudy - similarity between machine and human translation) score by 0.1.
 
-To bridge our discussion between environmental and social concerns, I want to bright to light another point that the author makes on how those communities who are generally most affected by climate change are generally those who will benefit from a large language model the least. As an example, people who live in the Maldives are estimated to have their home country completely submerged by 2100, however only around 60 percent of the residents have access to the internet. For those that do have internet access, it is unlikely that large language models are being developed for Dhivehi speakers, further reducing the percentage of individuals who would benefit from these technologies.
+**Note:** BLEU is defined as a scale from 0-1, but the change seen was defined by the authors as 29.6 -> 29.7
+
+To bridge our discussion between environmental and social concerns, I want to bright to light another point that the author makes on how those communities who are most affected by climate change are generally those who will benefit from a large language model the least. As an example, people who live in the Maldives are estimated to have their home country completely submerged by 2100, however only around 60 percent of the residents have access to the internet. For those that do have internet access, it is unlikely that large language models are being developed for Dhivehi speakers, further reducing the percentage of individuals who would benefit from these technologies.
+
+It can be proposed that there should be more effort into creating models in languages such as this, however this causes a double-edged sword as there are so many languages on Earth that the environmental cost of training an LM in so many languages would be massive.
 
 #### Social Concerns
 
@@ -36,25 +44,27 @@ This was not the only diversity concern in their filtering methods however; all 
 
 There can also be problems in how certain tokens are encoded and associated with each other. For instance, an example is given of how it is common for people with disabilities to be commonly associated with more negative sentiments, and for mental illness to be commonly associated with gun violence, homelessness and drug addiction. This is a direct effect of training texts that may link these ideas together even though they are not necessarily always seen in unison. As a result of this, we can see models that produce text with negative sentiments when discussing mental illness or disability when the prompt given had no negative connotation.
 
+**Question** - How would you design a training dataset that has minimized bias towards a certain internet space?
+
 #### Interpretability Concerns
 
 The final concern that the authors bring up is the lack of interpretability of most large-scale language models. This is in both the outputs and the inner workings of an LM. Firstly, it is easy for a user to see the output of an LM, particularly when it is about something that they are not as familiar with, and accepting it as the truth. As I am sure that everyone here is familiar with, LMs are not reliable 100% of the time.
 
 <img src="figures/figure3.png" alt="alt text" width="500">
 
-This is not necessairly the fault of the creators however; this relies on the user being skeptical of responses and understanding that 'coherence is in the eye of the beholder'.
+This is not necessairly the fault of the creators however; this relies on the user being skeptical of responses and understanding that 'coherence [is] in the eye of the beholder'.
 
 Another related point that is brought up by the authors is understanding exactly how LMs come to the conclusions that they do. We know the general idea of what models are doing, but we cannot visualize this easily. This creates a sort of 'black box' where words go in and come out, but we don't know what is going on inside. In a situation where an LM is creating problematic text, this makes it particularly difficult for developers to determine exactly where the model is going wrong. It is important to remember that these models are not trying to create communicative text, but rather to simply predict the next most likely token. This is why this paper refers to these models as 'stochastic parrots'.
 
 ## Authors' Suggestions
 
-- Author suggests that researchers should report training time and sensitivity to hyperparameters when the released model is meant to be re-trained for downstream use to both inform the public but also to level expectations for other researchers.
+- Author suggests that researchers should report training time and sensitivity to hyperparameters when the released model is meant to be re-trained for downstream use, both to inform the public but also to level expectations for other researchers.
 
-- There should be more of an emphasis on publishing and understanding LMs; we want to manage hype around these models so that we are not promoting training of larger models for lofty tasks
+- There should be more of an emphasis on publishing and understanding the workings of LMs; we want to manage hype around these models so that we are not promoting training of larger models for lofty tasks that cannot be achieved.
 
-- There is a suggestion that carbon efficiency and energy consumption should be used as evaluation metrics
+- There is a suggestion that carbon efficiency and energy consumption should be used as evaluation metrics.
 
-- More careful selection of training data and consideration when filtering already existing datasets.
+- More careful selection of training data and consideration when filtering already existing datasets. Attempt to make training data reflect the entire internet space as much as possible.
 
 - There should be more effort going into understanding exactly how the next token is decided inside a model.
 
@@ -70,17 +80,17 @@ This also raises the concern that perhaps not all of OpenAI's training set was e
 
 - I think that the authors did a good job of listing a lot of potential problems with language models, however there was not a whole lot of explanation about what they think could have done better. Of course the technology is not going to be perfect, but something like creating an acceptable training set is an incredibly difficult task and it is tough to cover every single scenario. I think this is applicable to all three of their main concerns.
 
-- When discussing the environmental concerns, I think there was too much of an emphasis on the negative effects. The industrial revolution destroyed the environment but it is undeniable that the industrial revolution greatly improved the quality of life for so many people around the world.
+- When discussing the environmental concerns, I think there was too much of an emphasis on the negative effects. The industrial revolution destroyed the environment but it is undeniable that the industrial revolution greatly improved the quality of life for so many people around the world. I think there could have been a bit more emphasis on the advances we have made in environmental costs. The paper mentions the decreased environmental cost between LMs utilizing tokenizers and n-gram models, but that is the extent of it.
 
-- I think that there are plenty of new issues that are emerging that should be considered as well. For instance, the examples that we have talked about in class with image generation: sexualization of women and use of others' intellectual property for training.
+- I think that there are plenty of new issues that are emerging that should be considered as well. For instance, the examples that we have talked about in class with image generation and selection of images for training: sexualization of women and use of others' intellectual property for training.
 
 - I will also note that this has been a heavily contentious paper for many of the reasons listed above - I think the general reception was that the paper brings up good points, but the lack of concrete suggestions for improvement make it difficult to act on this. One of the authors, Timnit Gebru, was fired from Google after the release of this paper, with the claim from Google that it "didn't meet [their] bar for publication".
 
-- I think there could have been a bit more emphasis on the advances we have made in environmental costs. The paper mentions the decreased environmental cost between LMs utilizing tokenizers and n-gram models, but that is the extent of it.
-
-## Discussion Questions
+## Bonus Questions
 
 - Which of these do you find to be most important to consider when training a large LM?
+
+- Do you find this paper to be fair in its assesment of the costs associated with training these large LMs?
 
 ## Related Articles
 
@@ -94,7 +104,3 @@ In the sense of this paper, language models are defined by systems that are trai
 **We read the paper that forced Timnit Gebru out of Google. Here’s what it says.** - https://www.technologyreview.com/2020/12/04/1013294/google-ai-ethics-research-paper-forced-out-timnit-gebru/
 
 **‘A Brave New World of Software Piracy:’ Lawsuit Takes Aim at Scrapping Methods Underpinning Modern Artificial Intelligence** - https://gizmodo.com/ai-microsoft-dall-e-1849816871
-
-Computational needs has gone down compared to some past methods such as n-gram models which use connected substrings, with technologies such as embedding being developed that significantly decrease the size of the data used
-
-
