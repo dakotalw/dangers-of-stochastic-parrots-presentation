@@ -22,11 +22,11 @@ With the ongoing climate crisis, there has been a big push for companies to be m
 
 When discussing environemental concerns, this paper leans heavily on the findings in 'Energy and Policy Considerations for Deep Learning in NLP' by Strubell et al., so a majority of the information that I will be discussing here will have come from this paper.
 
-It is estimated that a human will generate 5 tons of carbon dioxide emissions (CO<sub>2</sub>e) per year in 2017. It is noted in 'Energy and Policy Considerations' a single training of a large transformer can take upwards of 280 tons CO<sub>2</sub>e. It is noted that hardly any of the energy sources that cloud computing services utilize are renewable. Listed below are a series of models that were examined for environemental costs in Strubell et al.'s paper:
+It is estimated that a human will generate 5 tons of carbon dioxide emissions (CO<sub>2</sub>e) per year in 2017. It is noted in 'Energy and Policy Considerations' a single training of a large transformer can take upwards of 280 tons CO<sub>2</sub>e. It is noted that hardly any of the energy sources that cloud computing services utilize are renewable. Listed below are a series of models that were examined for environmental costs in Strubell et al.'s paper:
 
 <img src="figures/figure2.png" alt="alt text" width="800">
 
-The authors note how this high cost is not necessairly a bad thing as long as there is an improvement in accuracy. This was tested with the task of machine translation, a field where large language models had previously shown performance gains. It was estimated that in an English-to-German translation task using neural architecture, it costed 150,000 dollars and an unreported CO<sub>2</sub>e increase to raise the BLEU (bilingual evaluation understudy - similarity between machine and human translation) score by 0.1.
+The authors note how this high cost is not necessarily a bad thing as long as there is an improvement in accuracy. This was tested with the task of machine translation, a field where large language models had previously shown great performance gains. It was estimated that in an English-to-German translation task using neural architecture, it costed 150,000 dollars and an unreported CO<sub>2</sub>e increase to raise the BLEU (bilingual evaluation understudy - similarity between machine and human translation) score by 0.1.
 
 **Note:** BLEU is defined as a scale from 0-1, but the change seen was defined by the authors as 29.6 -> 29.7
 
